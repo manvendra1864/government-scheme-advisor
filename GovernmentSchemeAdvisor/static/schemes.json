@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Pradhan Mantri Jan Dhan Yojana",
+    "description": "Bank accounts for all households with zero balance facility.",
+    "eligibility": "Income below ₹3 lakh",
+    "age": { "min": 0, "max": 100 },
+    "maxIncome": 300000,
+    "gender": "any"
+  },
+  {
+    "name": "Sukanya Samriddhi Yojana",
+    "description": "Savings scheme for girl child up to 10 years of age.",
+    "eligibility": "Girls aged 10 or below",
+    "age": { "min": 0, "max": 10 },
+    "maxIncome": 1000000,
+    "gender": "female"
+  },
+  {
+    "name": "Ayushman Bharat Yojana",
+    "description": "Health coverage of ₹5 lakh per family per year.",
+    "eligibility": "Income below ₹2.5 lakh",
+    "age": { "min": 0, "max": 100 },
+    "maxIncome": 250000,
+    "gender": "any"
+  },
+  {
+    "name": "Pradhan Mantri Awas Yojana",
+    "description": "Affordable housing for the poor.",
+    "eligibility": "Income below ₹6 lakh",
+    "age": { "min": 18, "max": 100 },
+    "maxIncome": 600000,
+    "gender": "any"
+  },
+  {
+    "name": "Balika Samridhi Yojana",
+    "description": "Support for girls born after 1997 and studying in school.",
+    "eligibility": "Girl child aged 5 to 18",
+    "age": { "min": 5, "max": 18 },
+    "maxIncome": 300000,
+    "gender": "female"
+  },
+  {
+    "name": "Ladli Scheme",
+    "description": "Financial help for girl education.",
+    "eligibility": "Girl child with income below ₹2 lakh",
+    "age": { "min": 0, "max": 18 },
+    "maxIncome": 200000,
+    "gender": "female"
+  },
+  {
+    "name": "Rashtriya Swasthya Bima Yojana",
+    "description": "Health insurance for BPL families.",
+    "eligibility": "BPL income status",
+    "age": { "min": 0, "max": 100 },
+    "maxIncome": 120000,
+    "gender": "any"
+  },
+  {
+    "name": "Stand Up India Scheme",
+    "description": "Loans for SC/ST and women entrepreneurs.",
+    "eligibility": "Women or low income",
+    "age": { "min": 18, "max": 60 },
+    "maxIncome": 400000,
+    "gender": "female"
+  },
+  {
+    "name": "MUDRA Yojana",
+    "description": "Loans for micro and small businesses.",
+    "eligibility": "Low income business starters",
+    "age": { "min": 18, "max": 60 },
+    "maxIncome": 600000,
+    "gender": "any"
+  },
+  {
+    "name": "Ujjwala Yojana",
+    "description": "Free LPG connections for BPL women.",
+    "eligibility": "Women with income below ₹2 lakh",
+    "age": { "min": 18, "max": 60 },
+    "maxIncome": 200000,
+    "gender": "female"
+  },
+  {
+    "name": "Beti Bachao Beti Padhao",
+    "description": "Protect and educate the girl child.",
+    "eligibility": "All girl children",
+    "age": { "min": 0, "max": 18 },
+    "maxIncome": 1000000,
+    "gender": "female"
+  },
+  {
+    "name": "Digital India Programme",
+    "description": "Support for digital inclusion.",
+    "eligibility": "Open to all citizens",
+    "age": { "min": 10, "max": 100 },
+    "maxIncome": 1000000,
+    "gender": "any"
+  },
+  {
+    "name": "Skill India Mission",
+    "description": "Skill training and job assistance.",
+    "eligibility": "Aged 15–45",
+    "age": { "min": 15, "max": 45 },
+    "maxIncome": 500000,
+    "gender": "any"
+  },
+  {
+    "name": "PM Vaya Vandana Yojana",
+    "description": "Pension scheme for senior citizens.",
+    "eligibility": "Age 60+",
+    "age": { "min": 60, "max": 100 },
+    "maxIncome": 1000000,
+    "gender": "any"
+  },
+  {
+    "name": "Atal Pension Yojana",
+    "description": "Pension for unorganized workers.",
+    "eligibility": "Aged 18–40",
+    "age": { "min": 18, "max": 40 },
+    "maxIncome": 500000,
+    "gender": "any"
+  },
+  {
+    "name": "Swadhar Greh Scheme",
+    "description": "Help for women in difficult circumstances.",
+    "eligibility": "Distressed women under ₹2 lakh",
+    "age": { "min": 18, "max": 60 },
+    "maxIncome": 200000,
+    "gender": "female"
+  },
+  {
+    "name": "National Child Labour Project",
+    "description": "Education for child labourers.",
+    "eligibility": "Children under 14",
+    "age": { "min": 0, "max": 14 },
+    "maxIncome": 150000,
+    "gender": "any"
+  },
+  {
+    "name": "Antyodaya Anna Yojana",
+    "description": "Food security for poorest families.",
+    "eligibility": "Income below ₹1 lakh",
+    "age": { "min": 0, "max": 100 },
+    "maxIncome": 100000,
+    "gender": "any"
+  },
+  {
+    "name": "National Means-cum-Merit Scholarship",
+    "description": "Scholarship for meritorious students.",
+    "eligibility": "Students with income below ₹1.5 lakh",
+    "age": { "min": 10, "max": 16 },
+    "maxIncome": 150000,
+    "gender": "any"
+  },
+  {
+    "name": "Deendayal Upadhyaya Kaushalya Yojana",
+    "description": "Skill training for rural youth.",
+    "eligibility": "Age 15–35, income under ₹3 lakh",
+    "age": { "min": 15, "max": 35 },
+    "maxIncome": 300000,
+    "gender": "any"
+  }
+]
