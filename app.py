@@ -26,6 +26,10 @@ app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
 # Initialize the database with the app
 db.init_app(app)
 
+# Create tables if they don't exist
+with app.app_context():
+    db.create_all()
+
 # Import routes after app initialization to avoid circular imports
 from routes import *  # noqa: F401
 
