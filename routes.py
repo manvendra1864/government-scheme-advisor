@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, session, jsonify
-from app import app, db
+from app import app
+from extensions import db
 from models import User, SavedScheme
 from utils import load_schemes, get_eligible_schemes, login_required
 import logging
@@ -266,6 +267,4 @@ def saved_schemes():
     
     return render_template('saved_schemes.html', user=user, saved_schemes=saved_schemes_list)
 
-@app.route("/")
-def home():
-    return render_template("index.html")  # Make sure you have templates/index.html
+
