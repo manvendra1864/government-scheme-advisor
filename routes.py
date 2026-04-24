@@ -25,6 +25,11 @@ def schemes():
     """
     user = User.query.get(session['user_id'])
     
+    if user is None:
+        session.clear()
+        flash("User session invalid. Please log in again.", "error")
+        return redirect(url_for('login'))
+        
     if not user.has_complete_profile():
         return redirect(url_for('profile'))
     
