@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Saved Schemes - My Yojana{% endblock %}
+
+{% block content %}
+<header>
+    <h1>My Saved Schemes</h1>
+    <p>Government schemes you've saved for later reference</p>
+</header>
+
+<section class="saved-schemes-section">
+    {% if saved_schemes %}
+        <div class="schemes-stats">
+            <p>You have saved <strong>{{ saved_schemes|length }}</strong> scheme(s)</p>
+        </div>
+        
+        <div class="results-container">
+            {% for saved_scheme in saved_schemes %}
+                <div class="scheme-card saved-scheme-card">
+                    <div class="scheme-header">
+                        <h4>{{ saved_scheme.scheme_name }}</h4>
+                        <button class="remove-scheme-btn" data-scheme-name="{{ saved_scheme.scheme_name }}">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    {% if saved_scheme.scheme_description %}
+                        <p>{{ saved_scheme.scheme_description }}</p>
+                    {% endif %}
+                    
+                    {% if saved_scheme.scheme_eligibility %}
+                        <p><strong>Eligibility:</strong> {{ saved_scheme.scheme_eligibility }}</p>
+                    {% endif %}
+                    
+                    <p class="saved-date">Saved on {{ saved_scheme.saved_at.strftime('%B %d, %Y') }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <h3>No Saved Schemes</h3>
+            <p>You haven't saved any schemes yet. Find eligible schemes and save them for easy access!</p>
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Find Schemes</a>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Handle scheme removal
+document.addEventListener('DOMContentLoaded', function() {
+    const removeButtons = document.querySelectorAll('.remove-scheme-btn');
+    
+    removeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const schemeName = this.getAttribute('data-scheme-name');
+            
+            if (confirm(`Are you sure you want to remove "${schemeName}" from your saved schemes?`)) {
+                fetch('/remove_scheme', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: schemeName
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        // Remove the card from the page
+                        this.closest('.scheme-card').remove();
+                        
+                        // Check if there are any schemes left
+                        const remainingSchemes = document.querySelectorAll('.scheme-card').length;
+                        if (remainingSchemes === 0) {
+                            location.reload(); // Reload to show empty state
+                        }
+                    } else {
+                        alert(data.error || 'Failed to remove scheme');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to remove scheme');
+                });
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

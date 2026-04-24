@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+instance/
+*.db
+.env
+my-yojana-project.tar.gz
+internship-diary.txt
+backend-flow.txt
+project-flowchart.txt
+init_db.py
