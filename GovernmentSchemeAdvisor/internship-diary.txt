@@ -1,0 +1,29 @@
+📘 Internship Diary: Week 01  
+In the first week of my internship, I was introduced to the Government Scheme Advisor project (My Yojana). The objective was to build a web platform to help users discover government welfare schemes tailored to their needs. I began by understanding the project requirements and exploring the existing codebase, which uses Python, Flask, SQLAlchemy, and SQLite. I set up the development environment, installed dependencies, and ran the application locally. Initial challenges included resolving circular import errors and configuring the database connection. With guidance from documentation and online resources, I successfully launched the server and accessed the homepage. This week gave me a solid foundation in the project’s architecture and workflow.  
+👤 Name and Signature of Student: Manvendra Singh  
+🖊️ Counter Signed by Industry Mentor with name: ___________________
+
+📘 Internship Diary: Week 02  
+This week, I focused on user authentication and database integration. I reviewed and updated the user registration and login routes, ensuring secure password handling and session management. I encountered an error where the users table was missing in the database, which I resolved by running the appropriate SQLAlchemy commands to create all tables. I also learned to use Flask’s session and flash messaging for user feedback. By the end of the week, I could register new users, log in, and maintain session state across pages. This experience deepened my understanding of Flask’s request lifecycle and database migrations.  
+👤 Name and Signature of Student: Manvendra Singh  
+🖊️ Counter Signed by Industry Mentor with name: ___________________
+
+📘 Internship Diary: Week 03  
+During the third week, I worked on implementing the core feature: matching users to eligible government schemes. I created and refined the logic for filtering schemes based on user input (age, gender, income) and displayed the results dynamically using Jinja templates and JavaScript. I also integrated a JSON file containing scheme data and ensured the static and templates folders were correctly structured. A challenge arose with handling missing or malformed user input, which I addressed by adding server-side validation and user-friendly error messages. This week improved my skills in backend logic and frontend-backend integration.  
+👤 Name and Signature of Student: Manvendra Singh  
+🖊️ Counter Signed by Industry Mentor with name: ___________________
+
+📘 Internship Diary: Week 04  
+This week, I enhanced the user experience by implementing features for saving and managing favorite schemes. I added routes and database models for saving schemes to a user’s profile and retrieving them for display. I faced an AttributeError when accessing user attributes, which I fixed by adding checks for user authentication and existence before performing database queries. I also improved error handling throughout the app. Additionally, I worked on the profile and saved schemes pages, ensuring they rendered correctly and securely. These tasks strengthened my understanding of Flask decorators, session management, and secure coding practices.  
+👤 Name and Signature of Student: Manvendra Singh  
+🖊️ Counter Signed by Industry Mentor with name: ___________________
+
+📘 Internship Diary: Week 05  
+In the fifth week, I focused on testing, debugging, and polishing the application. I tested all major flows, including registration, login, scheme search, saving schemes, and profile updates. I fixed minor bugs related to route handling and template rendering. I also cleaned up the codebase, removed unused files, and updated documentation for future contributors. I presented the completed project to my mentor, received constructive feedback, and discussed possible future enhancements such as adding an admin dashboard and integrating more scheme data sources.  
+👤 Name and Signature of Student: Manvendra Singh  
+🖊️ Counter Signed by Industry Mentor with name: ___________________
+
+📘 Internship Diary: Week 06  
+In the final days of my internship, I focused on documentation and knowledge transfer. I prepared detailed setup instructions, code comments, and user guides for the project. I also assisted in deploying the application to a test environment and monitored its performance. I reflected on the technical and soft skills gained during this internship, including problem-solving, debugging, and effective communication with mentors and peers. This 45-day internship provided me with valuable hands-on experience in full-stack web development and reinforced my interest in building impactful digital solutions.  
+👤 Name and Signature of Student: Manvendra Singh  
+🖊️ Counter Signed by Industry Mentor with name: ___________________
