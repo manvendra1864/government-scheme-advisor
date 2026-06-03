@@ -1,114 +1,238 @@
-# My Yojana - Government Welfare Scheme Finder
+# My Yojana – Government Welfare Scheme Advisor
+
+A smart web application that helps citizens discover government welfare schemes based on their personal profile and eligibility criteria.
+
+🌐 **Live Demo:** https://government-scheme-advisor-1.onrender.com/
+
+---
 
 ## Overview
 
-My Yojana is a Flask-based web application that helps users discover government welfare schemes they're eligible for based on their personal information. The application features user authentication, profile management, and personalized scheme recommendations using a JSON-based eligibility system.
+**My Yojana** is a Flask-powered web platform designed to simplify access to government welfare schemes. Users can create an account, complete their profile, and instantly receive personalized scheme recommendations based on factors such as age, gender, and annual income.
+
+The platform aims to bridge the information gap between citizens and government welfare programs by providing an intuitive, user-friendly, and accessible experience.
+
+---
+
+## Features
+
+### User Authentication
+
+* Secure user registration and login
+* Password hashing using Werkzeug
+* Session-based authentication
+* Protected routes for authorized users
+
+### Profile Management
+
+* Personal profile creation and updates
+* Stores demographic and financial information
+* Profile completion validation before recommendations
+
+### Personalized Scheme Recommendations
+
+* Eligibility-based scheme matching
+* Real-time filtering using user profile data
+* Multi-criteria evaluation including:
+
+  * Age
+  * Gender
+  * Annual Income
+
+### Saved Schemes
+
+* Save schemes for future reference
+* View and manage bookmarked schemes
+* Persistent storage using a relational database
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* HTML5
+* CSS3
+* Bootstrap 5
+* Jinja2 Templates
+* Vanilla JavaScript
+
+### Backend
+
+* Python 3.11
+* Flask
+* Flask-SQLAlchemy
+* Werkzeug Security
+
+### Database
+
+* SQLite (Development)
+* PostgreSQL (Production Ready)
+
+### Deployment
+
+* Gunicorn
+* Render
+* Environment-based configuration
+
+---
 
 ## System Architecture
 
-### Frontend Architecture
-- **Template Engine**: Jinja2 templates with Flask
-- **Styling**: Custom CSS with Poppins font family and purple theme
-- **JavaScript**: Vanilla JavaScript for dynamic interactions
-- **UI Framework**: Bootstrap 5.1.3 for enhanced form styling
-- **Responsive Design**: Mobile-first approach with viewport meta tags
+### Application Flow
 
-### Backend Architecture
-- **Framework**: Flask (Python 3.11)
-- **Database ORM**: SQLAlchemy with Flask-SQLAlchemy
-- **Database**: SQLite (development) with PostgreSQL support configured
-- **Session Management**: Flask sessions with server-side storage
-- **Password Security**: Werkzeug password hashing
+1. User registers or logs into the platform.
+2. User completes their profile information.
+3. The eligibility engine evaluates available schemes.
+4. Matching schemes are displayed to the user.
+5. Users can save schemes for later access.
 
-### Template Structure
-- Base template (`base.html`) with navigation and flash messaging
-- Authentication templates (`login.html`, `register.html`)
-- User interface templates (`index.html`, `profile.html`, `saved_schemes.html`)
+### Eligibility Engine
 
-## Key Components
+The recommendation system uses a JSON-based scheme repository and evaluates:
 
-### Authentication System
-- User registration with email validation
-- Password hashing using Werkzeug
-- Session-based authentication
-- Login required decorators for protected routes
+* Minimum and maximum age requirements
+* Income eligibility criteria
+* Gender-specific requirements
 
-### User Profile Management
-- Complete profile tracking (name, age, gender, annual income)
-- Profile completion validation
-- Profile editing capabilities
+Only schemes matching the user's profile are displayed.
 
-### Scheme Eligibility Engine
-- JSON-based scheme database (`static/schemes.json`)
-- Multi-criteria filtering (age, income, gender)
-- Real-time eligibility checking
-- Scheme saving functionality
+---
 
-### Database Models
-- **User Model**: Authentication and profile data with timestamps
-- **SavedScheme Model**: User's saved schemes with metadata
-- Relationship mapping between users and saved schemes
+## Database Models
 
-## Data Flow
+### User
 
-1. **User Registration/Login**: 
-   - User creates account or logs in
-   - Session established with user ID
+Stores:
 
-2. **Profile Completion**:
-   - User fills profile information
-   - System validates completeness before scheme access
+* Authentication credentials
+* Personal information
+* Profile completion status
+* Account timestamps
 
-3. **Scheme Discovery**:
-   - System loads schemes from JSON file
-   - Filters based on user's age, income, and gender
-   - Returns eligible schemes via AJAX
+### SavedScheme
 
-4. **Scheme Management**:
-   - Users can save interesting schemes
-   - Saved schemes stored in database with timestamps
-   - Users can view and manage saved schemes
+Stores:
 
-## External Dependencies
+* Saved scheme information
+* User associations
+* Creation timestamps
 
-### Python Packages
-- **Flask**: Web framework and routing
-- **Flask-SQLAlchemy**: Database ORM integration
-- **email-validator**: Email validation with DNS checking
-- **psycopg2-binary**: PostgreSQL adapter (production ready)
-- **gunicorn**: WSGI HTTP server for deployment
-- **werkzeug**: WSGI utilities and password hashing
+---
 
-### Frontend Dependencies
-- **Bootstrap 5.1.3**: CSS framework (CDN)
-- **Google Fonts**: Poppins font family (CDN)
+## Project Structure
 
-### System Dependencies
-- **PostgreSQL**: Database server (configured in Nix)
-- **OpenSSL**: Security libraries
+```text
+├── app.py
+├── models.py
+├── routes.py
+├── static/
+│   ├── styles.css
+│   └── schemes.json
+├── templates/
+│   ├── base.html
+│   ├── login.html
+│   ├── register.html
+│   ├── profile.html
+│   ├── index.html
+│   └── saved_schemes.html
+└── requirements.txt
+```
 
-## Deployment Strategy
+---
 
-### Development Environment
-- **Platform**: Replit with Nix package management
-- **Database**: SQLite for simplicity
-- **Server**: Flask development server with debug mode
-- **Port**: 5000 with host binding to 0.0.0.0
+## Installation
 
-### Production Configuration
-- **Deployment Target**: Autoscale deployment on Replit
-- **WSGI Server**: Gunicorn with process binding
-- **Database**: PostgreSQL (environment variable configurable)
-- **Security**: Environment-based secret key management
-- **Proxy Support**: ProxyFix middleware for proper URL generation
+### Clone the Repository
 
-### Environment Variables
-- `DATABASE_URL`: Database connection string
-- `SESSION_SECRET`: Flask session secret key
+```bash
+git clone <repository-url>
+cd my-yojana
+```
 
-## Changelog
-- June 24, 2025. Initial setup
+### Create Virtual Environment
 
-## User Preferences
+```bash
+python -m venv venv
+```
 
-Preferred communication style: Simple, everyday language.
+### Activate Environment
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure Environment Variables
+
+```env
+DATABASE_URL=your_database_url
+SESSION_SECRET=your_secret_key
+```
+
+### Run the Application
+
+```bash
+python app.py
+```
+
+Application will be available at:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Future Enhancements
+
+* AI-powered scheme recommendations
+* Multilingual support
+* Aadhaar-based verification
+* Scheme application tracking
+* Government API integrations
+* Mobile application support
+
+---
+
+## Security Features
+
+* Password hashing and secure authentication
+* Session protection
+* Environment-based secret management
+* Production-ready PostgreSQL support
+
+---
+
+## Live Application
+
+🔗 https://government-scheme-advisor-1.onrender.com/
+
+---
+
+## License
+
+This project is developed for educational and social impact purposes. Feel free to modify and extend it according to your requirements.
+
+---
+
+## Author
+
+**Manvendra Singh**
+
+Computer Science Student | Python & Flask Developer
+
+LinkedIn: https://linkedin.com/in/manvendra1864
